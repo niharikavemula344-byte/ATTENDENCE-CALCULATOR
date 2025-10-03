@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Attendance Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="calculator-container">
+        <h1>Attendance Calculator <i class="fas fa-chart-bar header-icon"></i></h1>
+        <p class="powered-by-main">POWERED BY <span class="author-name-styled">NIHARIKA.VEMULA</span></p>
+
+        <p class="description">
+            <i class="fas fa-info-circle info-icon"></i> Find out the number of days you can Absent while still maintaining 75% attendance<br>
+            or the number of days you should attend to attain 75% attendance.
+        </p>
+
+        <div class="input-group">
+            <label for="required-percentage">Percentage Required</label>
+            <select id="required-percentage">
+                <option value="60">60%</option>
+                <option value="65">65%</option>
+                <option value="70">70%</option>
+                <option value="75" selected>75%</option>
+                <option value="80">80%</option>
+                <option value="85">85%</option>
+                <option value="90">90%</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="classes-attended">Present classes</label>
+            <input type="number" id="classes-attended" min="0" value="0">
+        </div>
+
+        <div class="input-group">
+            <label for="total-classes">Total classes</label>
+            <input type="number" id="total-classes" min="0" value="0">
+        </div>
+
+        <button onclick="calculateAttendance()">Calculate</button>
+
+        <div class="results-area">
+            <p id="action-needed" class="result-message"></p>
+            <p class="result-detail">Current Attendance: <span id="current-fraction">--/--</span> → <span id="current-percentage" class="percentage-value">--%</span></p>
+            <p class="result-detail">Attendance Required: <span id="required-fraction">--/--</span> → <span id="required-percentage-display" class="percentage-value">--%</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
