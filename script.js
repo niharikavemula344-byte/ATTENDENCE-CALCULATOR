@@ -13,7 +13,7 @@ function calculateAttendance() {
 
     // 3. Validation
     if (isNaN(totalClasses) || isNaN(attendedClasses) || totalClasses < 0 || attendedClasses < 0 || attendedClasses > totalClasses) {
-        actionNeededElement.textContent = 'Please enter valid numbers. Attended cannot be more than total.';
+        actionNeededElement.textContent = 'Enter valid values. Present classes cannot exceed total classes.';
         currentFractionElement.textContent = '--/--';
         currentPercentageElement.textContent = '--%';
         requiredFractionElement.textContent = '--/--';
@@ -64,7 +64,7 @@ function calculateAttendance() {
         requiredPercentageDisplayElement.textContent = `${(targetAttended / targetTotal * 100).toFixed(2)}%`;
 
     } else {
-        actionNeededElement.textContent = `You can bunk ${classesToSkip} classes while maintaining ${requiredPercentage}% attendance.`;
+        actionNeededElement.textContent = `You may miss ${Math.max(0, classesToSkip)} more classes while maintaining ${requiredPercentage}% attendance.`;
         
         // Calculate the required fraction for display
         const targetTotal = totalClasses + classesToSkip;
@@ -73,3 +73,9 @@ function calculateAttendance() {
         requiredPercentageDisplayElement.textContent = `${(targetAttended / targetTotal * 100).toFixed(2)}%`;
     }
 }
+
+document.getElementById('calculate-button').addEventListener('click', calculateAttendance);
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') calculateAttendance();
+});
