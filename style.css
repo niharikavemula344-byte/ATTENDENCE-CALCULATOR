@@ -158,3 +158,24 @@ button:hover {
     color: #3498db; /* Vibrant blue for highlighted number in message */
     font-weight: 900;
 }
+
+*:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 3px;
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 520px) {
+    body { padding: 12px; }
+    .calculator-container { padding: 24px 18px; }
+    h1 { font-size: 1.6rem; }
+    .input-group { align-items: stretch; flex-direction: column; gap: 6px; }
+    input[type="number"], select { box-sizing: border-box; text-align: left; width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; }
+}
